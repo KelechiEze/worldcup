@@ -5,7 +5,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     id: 0,
     name: "Cristiano Ronaldo (Ororo)",
     flavor: "Portugal National Team",
-    tagline: "Ororo • The World Cup Icon",
+    tagline: "Ronaldo • The World Cup Icon",
     description: "Witness the sheer power, clinical precision, and athletic dominance of Portugal's legendary No. 7. The ultimate champions' quest on the grandest stage.",
     bgColor: "#9E1B32", // Beautiful Portugal Deep Crimson
     accentColor: "#FFFFFF",

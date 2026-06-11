@@ -18,6 +18,7 @@ export default function Hero({
   scrollToSection
 }: HeroProps) {
   const slide = HERO_SLIDES[currentSlide];
+  const isDarkSlide = slide.id === 0 || slide.id === 4; // Ronaldo or Mbappe
 
   // Automatic slide changing interval (every 4 seconds)
   useEffect(() => {
@@ -83,7 +84,7 @@ export default function Hero({
               </h1>
 
               {/* Description */}
-              <p className="text-neutral-900/80 text-sm md:text-base leading-relaxed max-w-md font-medium">
+              <p className={`${isDarkSlide ? "text-white/95" : "text-neutral-900/80"} text-sm md:text-base leading-relaxed max-w-md font-medium`}>
                 {slide.description}
               </p>
             </motion.div>
@@ -93,7 +94,11 @@ export default function Hero({
           <div className="flex flex-wrap gap-4 pt-2">
             <button
               onClick={() => onAddToCart(slide)}
-              className="bg-neutral-950 hover:bg-neutral-850 hover:shadow-xl hover:scale-103 text-white font-extrabold text-xs tracking-wider uppercase px-8 py-4 rounded-full transition-all duration-300 shadow-md cursor-pointer flex items-center gap-2 group active:scale-98"
+              className={`${
+                isDarkSlide 
+                  ? "bg-white hover:bg-neutral-100 text-neutral-950" 
+                  : "bg-neutral-950 hover:bg-neutral-850 text-white"
+              } hover:shadow-xl hover:scale-103 font-extrabold text-xs tracking-wider uppercase px-8 py-4 rounded-full transition-all duration-300 shadow-md cursor-pointer flex items-center gap-2 group active:scale-98`}
               id="hero-order-now"
             >
               Explore Profile ({slide.calories})
@@ -106,7 +111,11 @@ export default function Hero({
             </button>
             <button
               onClick={() => scrollToSection("footer")}
-              className="border-2 border-white/60 hover:bg-white/20 active:bg-white/30 text-neutral-900 font-extrabold text-xs tracking-wider uppercase px-8 py-4 rounded-full transition-all duration-300 cursor-pointer"
+              className={`border-2 ${
+                isDarkSlide 
+                  ? "border-white hover:bg-white/10 text-white" 
+                  : "border-white/60 hover:bg-white/20 text-neutral-900"
+              } font-extrabold text-xs tracking-wider uppercase px-8 py-4 rounded-full transition-all duration-300 cursor-pointer`}
               id="hero-see-menu"
             >
               Contact Support
@@ -132,7 +141,7 @@ export default function Hero({
                   <Star key={i} className="w-4 h-4 fill-current text-white drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,0.2)]" />
                 ))}
               </div>
-              <p className="text-xs font-bold text-neutral-950/90 mt-0.5">
+              <p className={`text-xs font-bold ${isDarkSlide ? "text-white/95" : "text-neutral-950/90"} mt-0.5`}>
                 {slide.ratingCount} • Overall Rating: {slide.ratingValue}
               </p>
             </div>
@@ -173,7 +182,7 @@ export default function Hero({
 
         {/* Right Side: Next Product teaser floating */}
         <div className="hidden lg:flex lg:col-span-2 flex-col items-center justify-center relative select-none cursor-pointer z-20 order-3" id="hero-right-teaser">
-          <span className="text-[10px] font-extrabold uppercase tracking-widest text-neutral-900/60 mb-2">Next Star</span>
+          <span className={`text-[10px] font-extrabold uppercase tracking-widest ${isDarkSlide ? "text-white/70" : "text-neutral-900/60"} mb-2`}>Next Star</span>
           
           <AnimatePresence mode="wait">
             <motion.div
