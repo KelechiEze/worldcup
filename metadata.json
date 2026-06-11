@@ -1,0 +1,6 @@
+{
+  "name": "Creamy",
+  "description": "A premium, fully responsive ice cream website showcasing delicious flavors with smooth physics-defying slide transitions and beautiful wave dividers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
